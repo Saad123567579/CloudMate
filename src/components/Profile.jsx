@@ -2,6 +2,7 @@ import React  ,{useEffect} from 'react'
 import { setUser } from '../redux/authSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Navbar from './Navbar'
 const Profile = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const Profile = () => {
                 await dispatch(setUser(userData));
             }
             else {
-                navigate("/login");
+                navigate("/");
             }
         }
       Action();
@@ -20,6 +21,7 @@ const Profile = () => {
     
   return (
     <div>
+        <Navbar/>
       profile page
     </div>
   )

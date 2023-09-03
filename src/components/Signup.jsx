@@ -38,6 +38,7 @@ const Signup = () => {
      const firestoreQuery1 = query(userRef, where("email", "==", data.email));
      const fetchedAllUsers = await getDocs(firestoreQuery1);
      if (fetchedAllUsers.docs.length === 0) {
+        data.image = "https://img.freepik.com/premium-vector/avatar-portrait-kid-caucasian-boy-round-frame-vector-illustration-cartoon-flat-style_551425-43.jpg?w=2000";
         await addDoc(userRef, data);
         await dispatch(setUser(data));
         localStorage.setItem("user",JSON.stringify(data))
